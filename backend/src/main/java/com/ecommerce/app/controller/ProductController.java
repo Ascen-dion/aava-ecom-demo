@@ -27,9 +27,14 @@ public class ProductController {
     // GET product by ID
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {
-        return productService.getProductById(id)
-            .map(ResponseEntity::ok)
-            .orElse(ResponseEntity.notFound().build());
+        Product product = productService.getProductById(id);
+            
+        if (product != null) {
+        return ResponseEntity.ok(product);
+    } else {
+        return ResponseEntity.notFound().build();
+    }
+
     }
     
     // POST create new product
