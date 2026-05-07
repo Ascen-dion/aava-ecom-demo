@@ -21,6 +21,11 @@ function Navbar({ cart }) {
               Cart ({cart.length})
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="/profile" className="nav-link">
+              Profile
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
